@@ -1,0 +1,33 @@
+ETL в моём проекте строится на загрузке данных из БД booking и выгрузке в трансформированном виде в созданную базу в облачном сервисе supabase.
+
+Часть трансформаций над данными производится посредством Pentaho Data Integration, часть - в процессе загрузки из БД booking на лету с помощью SQL-скриптов,
+позволяющх получать информацию сразу в надлежащем виде.
+
+Так, например, для наполнения таблицы фактов flight_facts данными о задержках вылета и прибытия, мы используем расчёты непосредственно при загрузке данных из БД booking.
+
+SELECT
+  f.flight_id,
+  t.passenger_name, 
+  f.actual_departure, 
+  f.actual_arrival, 
+  EXTRACT ('EPOCH' FROM (f.actual_departure - f.scheduled_departure)) as departure_delay, 
+  EXTRACT('EPOCH' FROM (f.actual_arrival - f.scheduled_arrival)) as arrival_delay, 
+  a.model as aircraft, 
+  da.city as from, 
+  aa.city as destination, 
+  tf.fare_conditions, 
+  tf.amount 
+FROM 
+  tickets t 
+  JOIN ticket_flights tf ON t.ticket_no = tf.ticket_no 
+  JOIN flights f ON f.flight_id = tf.flight_id 
+  JOIN airports da ON f.departure_airport = da.airport_code 
+  JOIN airports aa ON f.arrival_airport = aa.airport_code 
+  JOIN aircrafts a ON f.aircraft_code = a.aircraft_code 
+WHERE 
+  f.status LIKE 'Arrived'
+
+ С таблицами-справочниками поступаем следущюшим образом: для каждого справочника создаем отдельную трансформацию и последолвательно запускаем их с помощью Job'а. 
+ После загрузки всех справочников в эту же Job добавляем основную трансформация fact_flights, в которой с помощью шага Lookup обогащаем основную таблицу данными из каждого справочника, заменяя значение на id в соответствующем справочнике.
+
+ На последнем шаге Job'а делаем выгрузку в таблицу fact_flights в облачной БД.
