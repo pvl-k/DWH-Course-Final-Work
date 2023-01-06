@@ -556,6 +556,62 @@
     </hop>
   </order>
   <step>
+    <name>Data validator</name>
+    <type>Validator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <validate_all>N</validate_all>
+    <concat_errors>N</concat_errors>
+    <concat_separator>|</concat_separator>
+    <validator_field>
+      <name>passenger_id</name>
+      <validation_name>passport_number</validation_name>
+      <max_length>10</max_length>
+      <min_length>10</min_length>
+      <null_allowed>N</null_allowed>
+      <only_null_allowed>N</only_null_allowed>
+      <only_numeric_allowed>N</only_numeric_allowed>
+      <data_type>None</data_type>
+      <data_type_verified>N</data_type_verified>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <max_value/>
+      <min_value/>
+      <start_string/>
+      <end_string/>
+      <start_string_not_allowed/>
+      <end_string_not_allowed/>
+      <regular_expression/>
+      <regular_expression_not_allowed/>
+      <error_code/>
+      <error_description/>
+      <is_sourcing_values>N</is_sourcing_values>
+      <sourcing_step/>
+      <sourcing_field/>
+      <allowed_value/>
+    </validator_field>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>192</xloc>
+      <yloc>16</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Get Passengers</name>
     <type>TableInput</type>
     <description/>
@@ -568,11 +624,9 @@
     </partitioning>
     <connection>Netology_Bookings</connection>
     <sql>SELECT DISTINCT 
-	passenger_id,
+	REPLACE(passenger_id, ' ', '') as passenger_id,
     passenger_name,
-	contact_data,
-	SPLIT_PART(passenger_id, ' ', 1) as passport_series,
-    SPLIT_PART(passenger_id, ' ', 2) as passport_number,	
+	contact_data,	
 	SPLIT_PART(passenger_name, ' ', 1) as first_name,
     SPLIT_PART(passenger_name, ' ', 2) as last_name,
     (REGEXP_REPLACE(contact_data ->> 'phone', '\D', ''))::bigint phone,
@@ -590,7 +644,7 @@ FROM
         <type>String</type>
         <storagetype>normal</storagetype>
         <name>passenger_id</name>
-        <length>20</length>
+        <length>2147483647</length>
         <precision>-1</precision>
         <origin>Get Passengers</origin>
         <comments>passenger_id</comments>
@@ -640,52 +694,6 @@ FROM
         <precision>0</precision>
         <origin>Get Passengers</origin>
         <comments>contact_data</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol> </grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>Asia/Jerusalem</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>passport_series</name>
-        <length>2147483647</length>
-        <precision>-1</precision>
-        <origin>Get Passengers</origin>
-        <comments>passport_series</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol> </grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>Asia/Jerusalem</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>passport_number</name>
-        <length>2147483647</length>
-        <precision>-1</precision>
-        <origin>Get Passengers</origin>
-        <comments>passport_number</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol> </grouping_symbol>
@@ -842,8 +850,24 @@ FROM
         <stream_name>passenger_id</stream_name>
       </field>
       <field>
+        <column_name>first_name</column_name>
+        <stream_name>first_name</stream_name>
+      </field>
+      <field>
+        <column_name>last_name</column_name>
+        <stream_name>last_name</stream_name>
+      </field>
+      <field>
         <column_name>passenger_name</column_name>
         <stream_name>passenger_name</stream_name>
+      </field>
+      <field>
+        <column_name>phone</column_name>
+        <stream_name>phone</stream_name>
+      </field>
+      <field>
+        <column_name>email</column_name>
+        <stream_name>email</stream_name>
       </field>
     </fields>
     <attributes/>
@@ -861,62 +885,6 @@ FROM
     </GUI>
   </step>
   <step>
-    <name>Data validator</name>
-    <type>Validator</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <validate_all>N</validate_all>
-    <concat_errors>N</concat_errors>
-    <concat_separator>|</concat_separator>
-    <validator_field>
-      <name>passport_series</name>
-      <validation_name>passport_series</validation_name>
-      <max_length>4</max_length>
-      <min_length>4</min_length>
-      <null_allowed>N</null_allowed>
-      <only_null_allowed>N</only_null_allowed>
-      <only_numeric_allowed>N</only_numeric_allowed>
-      <data_type>None</data_type>
-      <data_type_verified>N</data_type_verified>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <max_value/>
-      <min_value/>
-      <start_string/>
-      <end_string/>
-      <start_string_not_allowed/>
-      <end_string_not_allowed/>
-      <regular_expression/>
-      <regular_expression_not_allowed/>
-      <error_code/>
-      <error_description/>
-      <is_sourcing_values>N</is_sourcing_values>
-      <sourcing_step/>
-      <sourcing_field/>
-      <allowed_value/>
-    </validator_field>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>192</xloc>
-      <yloc>16</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Send Rejected Passengers</name>
     <type>TableOutput</type>
     <description/>
@@ -929,7 +897,7 @@ FROM
     </partitioning>
     <connection>Supabase_Final_Homework</connection>
     <schema>public</schema>
-    <table>rejected_dim_passengers</table>
+    <table>dim_passengers_rejected</table>
     <commit>1000</commit>
     <truncate>Y</truncate>
     <ignore_errors>N</ignore_errors>
@@ -950,8 +918,24 @@ FROM
         <stream_name>passenger_id</stream_name>
       </field>
       <field>
+        <column_name>first_name</column_name>
+        <stream_name>first_name</stream_name>
+      </field>
+      <field>
+        <column_name>last_name</column_name>
+        <stream_name>last_name</stream_name>
+      </field>
+      <field>
         <column_name>passenger_name</column_name>
         <stream_name>passenger_name</stream_name>
+      </field>
+      <field>
+        <column_name>phone</column_name>
+        <stream_name>phone</stream_name>
+      </field>
+      <field>
+        <column_name>email</column_name>
+        <stream_name>email</stream_name>
       </field>
     </fields>
     <attributes/>

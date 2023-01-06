@@ -2,7 +2,7 @@ CREATE SCHEMA public;
 
 CREATE TABLE "fact_flights" (
 	"fact_id" serial,
-	"passenger_id" varchar(11) NOT NULL,
+	"passenger_passport" varchar(11) NOT NULL,
 	"actual_departure" DATE NOT NULL,
 	"actual_arrival" DATE NOT NULL,
 	"departure_delay" int NOT NULL,
@@ -29,10 +29,12 @@ CREATE TABLE "dim_calendar" (
 
 CREATE TABLE "dim_passengers" (
 	"passenger_id" serial,
---	"ticket_no" varchar(15) NOT NULL,
---	"book_ref" varchar(6) NOT NULL,
-	"passport" varchar(15),
+	"passport" varchar(10) NOT NULL,
 	"passenger_name" varchar(100) NOT NULL,
+	"first_name" varchar(50) NOT NULL,
+	"last_name" varchar(50) NOT NULL,
+	"phone" bigint,
+	"email" varchar(50),
 	CONSTRAINT "passengers_pk" PRIMARY KEY ("passenger_id")
 ) WITH (
   OIDS=FALSE
@@ -71,9 +73,9 @@ CREATE TABLE "dim_tariff" (
   OIDS=FALSE
 );
 
-CREATE TABLE "rejected_fact_flights" (
+CREATE TABLE "fact_flights_rejected_" (
 	"fact_id" serial,
-	"passenger_id" varchar(11) NOT NULL,
+	"passenger_passport" varchar(11) NOT NULL,
 	"actual_departure" DATE NOT NULL,
 	"actual_arrival" DATE NOT NULL,
 	"departure_delay" int NOT NULL,
@@ -83,61 +85,63 @@ CREATE TABLE "rejected_fact_flights" (
 	"destination" varchar(50) NOT NULL,
 	"fare_conditions" varchar(50) NOT NULL,
 	"amount" int NOT NULL,
-	CONSTRAINT "rejected_fact_fact_pk" PRIMARY KEY ("fact_id")
+	CONSTRAINT "fact_fact_rejected_pk" PRIMARY KEY ("fact_id")
 ) WITH (
   OIDS=FALSE
 );
 
 
-CREATE TABLE "rejected_dim_calendar" (
+CREATE TABLE "dim_calendar_rejected" (
 	"date_id" serial,
 	"date" varchar(100) NOT NULL,
-	CONSTRAINT "rejected_date_pk" PRIMARY KEY ("date_id")
+	CONSTRAINT "date_rejected_pk" PRIMARY KEY ("date_id")
 ) WITH (
   OIDS=FALSE
 );
 
 
-CREATE TABLE "rejected_dim_passengers" (
+CREATE TABLE "dim_passengers_rejected" (
 	"passenger_id" serial,
---	"ticket_no" varchar(15) NOT NULL,
---	"book_ref" varchar(6) NOT NULL,
-	"passport" varchar(15),
+	"passport" varchar(10) NOT NULL,
 	"passenger_name" varchar(100) NOT NULL,
-	CONSTRAINT "rejected_passengers_pk" PRIMARY KEY ("passenger_id")
+	"first_name" varchar(50) NOT NULL,
+	"last_name" varchar(50) NOT NULL,
+	"phone" bigint,
+	"email" varchar(50),
+	CONSTRAINT "passengers_rejected_pk" PRIMARY KEY ("passenger_id")
 ) WITH (
   OIDS=FALSE
 );
 
 
-CREATE TABLE "rejected_dim_aircrafts" (
+CREATE TABLE "dim_aircrafts_rejected" (
 	"aircraft_id" serial,
 	"aircraft_code" varchar(15),
 	"model" varchar(100) NOT NULL,
 	"range" varchar(5) NOT NULL,
-	CONSTRAINT "rejected_aircrafts_pk" PRIMARY KEY ("aircraft_id")
+	CONSTRAINT "aircrafts_rejected_pk" PRIMARY KEY ("aircraft_id")
 ) WITH (
   OIDS=FALSE
 );
 
 
-CREATE TABLE "rejected_dim_airports" (
+CREATE TABLE "dim_airports_rejected" (
 	"airport_id" serial,
 	"city" varchar(100) NOT NULL,	
 	"airport_code" varchar(5),
 	"airport_name" varchar(100) NOT NULL,
 	"coordinates" varchar(100) NOT NULL,
 	"timezone" varchar(100) NOT NULL,	
-	CONSTRAINT "rejected_airport_pk" PRIMARY KEY ("airport_id")
+	CONSTRAINT "airport_rejected_pk" PRIMARY KEY ("airport_id")
 ) WITH (
   OIDS=FALSE
 );
 
 
-CREATE TABLE "rejected_dim_tariff" (
+CREATE TABLE "dim_tariff_rejected" (
 	"fare_id" serial,
 	"fare_conditions" varchar(15),
-	CONSTRAINT "rejected_tariff_pk" PRIMARY KEY ("fare_id")
+	CONSTRAINT "tariff_rejected_pk" PRIMARY KEY ("fare_id")
 ) WITH (
   OIDS=FALSE
 );
