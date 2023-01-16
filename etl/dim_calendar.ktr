@@ -489,13 +489,13 @@
   </connection>
   <connection>
     <name>Supabase_Final_Homework</name>
-    <server>db.lbomnbyygsqceambjqdh.supabase.co</server>
+    <server>localhost</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
     <database>postgres</database>
     <port>5432</port>
     <username>postgres</username>
-    <password>Encrypted 2ccd0c98f07e988b2f849f859868383eb</password>
+    <password>Encrypted 2be98afc86aa7f2e4bb16bd64d980aac9</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>

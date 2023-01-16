@@ -315,7 +315,7 @@
       <attributes/>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>/Users/pk/Documents/netology/DWH/HW_Final/v2/dim_aircrafts.ktr</filename>
+      <filename>${Internal.Entry.Current.Directory}/dim_aircrafts.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -354,7 +354,7 @@
       <attributes/>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>/Users/pk/Documents/netology/DWH/HW_Final/v2/dim_airports.ktr</filename>
+      <filename>${Internal.Entry.Current.Directory}/dim_airports.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -393,7 +393,7 @@
       <attributes/>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>/Users/pk/Documents/netology/DWH/HW_Final/v2/dim_passengers.ktr</filename>
+      <filename>${Internal.Entry.Current.Directory}/dim_passengers.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -432,7 +432,7 @@
       <attributes/>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>/Users/pk/Documents/netology/DWH/HW_Final/v2/dim_tariff.ktr</filename>
+      <filename>${Internal.Entry.Current.Directory}/dim_tariff.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -471,7 +471,7 @@
       <attributes/>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>/Users/pk/Documents/netology/DWH/HW_Final/v2/fact_flights.ktr</filename>
+      <filename>${Internal.Entry.Current.Directory}/fact_flights.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
