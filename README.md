@@ -34,11 +34,11 @@ Low-quality rows should be written to separate rejected tables.
 
 ## The decision must contain:
 
-1. [Docker file](../blob/main/Docker) for creating container with PostgreSQL server.
-1. [SQL script](https://github.com/pvl-k/DWH-Course-Final-Work/blob/main/Docker/init.sql) for creating a fact table and all catalogs in container.
-2. [Transformations](https://github.com/pvl-k/DWH-Course-Final-Work/tree/main/etl)
+1. [Docker file](../main/Docker/Dockerfile) for creating container with PostgreSQL server.
+1. [SQL script](../main/Docker/init.sql) for creating a fact table and all catalogs in container.
+2. [Transformations](../main/etl)
 * ETL loading fact tables and all catalogs
 * Data quality validations
 2. Documentation describing the ETL procedure and all the features of its work
-3. [ER model](https://github.com/pvl-k/DWH-Course-Final-Work/blob/main/docs/ER-diagram.png) of the storage's created database
-4. [Screenshots](https://github.com/pvl-k/DWH-Course-Final-Work/tree/main/screenshots) of ETL processes
+3. [ER model](../main/docs/ER-diagram.png) of the storage's created database
+4. [Screenshots](../main/screenshots) of ETL processes
