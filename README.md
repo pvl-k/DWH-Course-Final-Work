@@ -35,10 +35,10 @@ Low-quality rows should be written to separate rejected tables.
 
 ## The decision must contain:
 
-1. SQL script for creating a fact table and all catalogs
-2. Transformations
+1. [SQL script](https://github.com/pvl-k/DWH-Course-Final-Work/blob/main/Docker/init.sql) for creating a fact table and all catalogs
+2. [Transformations](https://github.com/pvl-k/DWH-Course-Final-Work/tree/main/etl)
 * ETL loading fact tables and all catalogs
 * Data quality validations
 2. Documentation describing the ETL procedure and all the features of its work
-3. ER diagram of the storage's created database
-4. Screenshots of ETL processes
+3. ER model of the storage's created database
+4. [Screenshots](https://github.com/pvl-k/DWH-Course-Final-Work/tree/main/screenshots) of ETL processes
