@@ -25,3 +25,10 @@ If the ticket included a complex route with transfers, each segment is taken int
 4. Dim_Aircrafts - aircraft catalog
 5. Dim_Airports - directory of airports
 6. Dim_Tariff - tariff catalog (Economy / business, etc.)
+
+## Data quality validation
+
+For each table in the warehouse, you need to come up with and implement at least 3-4 data quality validations. 
+For example, the actual departure date cannot be greater than today. 
+A description of each check should be in the documentation.
+Low-quality rows should be written to separate rejected tables.
