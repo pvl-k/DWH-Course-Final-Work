@@ -8,7 +8,8 @@ As part of the project work, it will be necessary to:
 
 ## Required tables:
 
-     Fact_Flights - contains completed flights. If the ticket included a complex route with transfers, each segment is taken into account independently
+1. Fact_Flights - contains completed flights. 
+If the ticket included a complex route with transfers, each segment is taken into account independently
          Passenger
          Date and time of departure (actual)
          Date and time of arrival (actual)
@@ -19,8 +20,8 @@ As part of the project work, it will be necessary to:
          Arrival airport
          Service class
          Price
-     Dim_Calendar - date catalog
-     Dim_Passengers - directory of passengers
-     Dim_Aircrafts - aircraft catalog
-     Dim_Airports - directory of airports
-     Dim_Tariff - tariff catalog (Economy / business, etc.)
+2. Dim_Calendar - date catalog
+3. Dim_Passengers - directory of passengers
+4. Dim_Aircrafts - aircraft catalog
+5. Dim_Airports - directory of airports
+6. Dim_Tariff - tariff catalog (Economy / business, etc.)
