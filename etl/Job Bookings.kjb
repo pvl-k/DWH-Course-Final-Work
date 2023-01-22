@@ -305,7 +305,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>16</xloc>
-      <yloc>208</yloc>
+      <yloc>16</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -344,7 +344,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>208</xloc>
-      <yloc>208</yloc>
+      <yloc>16</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -383,7 +383,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>416</xloc>
-      <yloc>208</yloc>
+      <yloc>16</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -422,7 +422,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>608</xloc>
-      <yloc>208</yloc>
+      <yloc>16</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -461,7 +461,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>608</xloc>
-      <yloc>304</yloc>
+      <yloc>112</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -500,7 +500,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>416</xloc>
-      <yloc>304</yloc>
+      <yloc>112</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -512,11 +512,11 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>16</xloc>
-      <yloc>304</yloc>
+      <yloc>112</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>Date Upload</name>
+      <name>Calendar Upload</name>
       <description/>
       <type>TRANS</type>
       <attributes/>
@@ -551,7 +551,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>208</xloc>
-      <yloc>304</yloc>
+      <yloc>112</yloc>
       <attributes_kjc/>
     </entry>
   </entries>
@@ -603,7 +603,7 @@
     </hop>
     <hop>
       <from>Fact Flights Transformation</from>
-      <to>Date Upload</to>
+      <to>Calendar Upload</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -611,7 +611,7 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Date Upload</from>
+      <from>Calendar Upload</from>
       <to>End</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>

@@ -29,12 +29,12 @@ CREATE TABLE "dim_calendar" (
 
 CREATE TABLE "dim_passengers" (
 	"passenger_id" serial,
-	"passport" varchar(11),
-	"first_name" varchar(50),
-	"last_name" varchar(50),
+	"passport" varchar(10) NOT NULL,
+	"first_name" varchar(50) NOT NULL,
+	"last_name" varchar(50) NOT NULL,
 	"passenger_name" varchar(100) NOT NULL,
-	"contact_data" varchar(100),
-	"phone" varchar(20),
+	"contact_data" varchar(100) NOT NULL,
+	"phone" varchar(20) NOT NULL,
 	"email" varchar(50),
 	CONSTRAINT "passengers_pk" PRIMARY KEY ("passenger_id")
 ) WITH (
@@ -103,12 +103,12 @@ CREATE TABLE "rejected_dim_calendar" (
 
 CREATE TABLE "rejected_dim_passengers" (
 	"passenger_id" serial,
-	"passport" varchar(11),
-	"first_name" varchar(50),
-	"last_name" varchar(50),
+	"passport" varchar(10) NOT NULL,
+	"first_name" varchar(50) NOT NULL,
+	"last_name" varchar(50) NOT NULL,
 	"passenger_name" varchar(100) NOT NULL,
-	"contact_data" varchar(100),
-	"phone" varchar(20),
+	"contact_data" varchar(100) NOT NULL,
+	"phone" varchar(20) NOT NULL,
 	"email" varchar(50),
 	CONSTRAINT "rejected_passengers_pk" PRIMARY KEY ("passenger_id")
 ) WITH (

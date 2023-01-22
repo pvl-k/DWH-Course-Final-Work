@@ -850,16 +850,20 @@ FROM
         <stream_name>passenger_id</stream_name>
       </field>
       <field>
+        <column_name>passenger_name</column_name>
+        <stream_name>passenger_name</stream_name>
+      </field>
+      <field>
+        <column_name>contact_data</column_name>
+        <stream_name>contact_data</stream_name>
+      </field>
+      <field>
         <column_name>first_name</column_name>
         <stream_name>first_name</stream_name>
       </field>
       <field>
         <column_name>last_name</column_name>
         <stream_name>last_name</stream_name>
-      </field>
-      <field>
-        <column_name>passenger_name</column_name>
-        <stream_name>passenger_name</stream_name>
       </field>
       <field>
         <column_name>phone</column_name>
@@ -918,16 +922,20 @@ FROM
         <stream_name>passenger_id</stream_name>
       </field>
       <field>
+        <column_name>passenger_name</column_name>
+        <stream_name>passenger_name</stream_name>
+      </field>
+      <field>
+        <column_name>contact_data</column_name>
+        <stream_name>contact_data</stream_name>
+      </field>
+      <field>
         <column_name>first_name</column_name>
         <stream_name>first_name</stream_name>
       </field>
       <field>
         <column_name>last_name</column_name>
         <stream_name>last_name</stream_name>
-      </field>
-      <field>
-        <column_name>passenger_name</column_name>
-        <stream_name>passenger_name</stream_name>
       </field>
       <field>
         <column_name>phone</column_name>

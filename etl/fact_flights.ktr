@@ -870,7 +870,8 @@
     <connection>Netology_Bookings</connection>
     <sql>SELECT
   f.flight_id,
-  t.passenger_id as passport, 
+  REPLACE(t.passenger_id, ' ', '') as passport,
+ -- t.passenger_id as , 
   f.actual_departure, 
   f.actual_arrival, 
   EXTRACT ('EPOCH' FROM (f.actual_departure - f.scheduled_departure)) as departure_delay, 
