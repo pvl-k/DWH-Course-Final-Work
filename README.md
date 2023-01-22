@@ -40,5 +40,5 @@ Low-quality rows should be written to separate rejected tables.
 * ETL loading fact tables and all catalogs
 * Data quality validations
 2. Documentation describing the ETL procedure and all the features of its work
-3. ER model of the storage's created database
+3. [ER model](https://github.com/pvl-k/DWH-Course-Final-Work/blob/main/docs/ER-diagram.png) of the storage's created database
 4. [Screenshots](https://github.com/pvl-k/DWH-Course-Final-Work/tree/main/screenshots) of ETL processes
