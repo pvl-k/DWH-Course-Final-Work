@@ -13,13 +13,13 @@ If the ticket included a complex route with transfers, each segment is taken int
 * Passenger
 * Date and time of departure (actual)
 * Date and time of arrival (actual)
-         Departure delay (difference between actual and scheduled date in seconds)
-         Arrival delay (difference between actual and planned date in seconds)
-         Airplane
-         Departure airport
-         Arrival airport
-         Service class
-         Price
+* Departure delay (difference between actual and scheduled date in seconds)
+* Arrival delay (difference between actual and planned date in seconds)
+* Airplane
+* Departure airport
+* Arrival airport
+* Service class
+* Price
 2. Dim_Calendar - date catalog
 3. Dim_Passengers - directory of passengers
 4. Dim_Aircrafts - aircraft catalog
