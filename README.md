@@ -20,11 +20,10 @@ If the ticket included a complex route with transfers, each segment is taken int
 * Arrival airport
 * Service class
 * Price
-2. Dim_Calendar - date catalog
-3. Dim_Passengers - directory of passengers
-4. Dim_Aircrafts - aircraft catalog
-5. Dim_Airports - directory of airports
-6. Dim_Tariff - tariff catalog (Economy / business, etc.)
+2. Dim_Passengers - directory of passengers
+3. Dim_Aircrafts - aircraft catalog
+4. Dim_Airports - directory of airports
+5. Dim_Tariff - tariff catalog (Economy / business, etc.)
 
 ## Data quality validation
 
