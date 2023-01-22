@@ -10,9 +10,9 @@ As part of the project work, it will be necessary to:
 
 1. Fact_Flights - contains completed flights. 
 If the ticket included a complex route with transfers, each segment is taken into account independently
-         Passenger
-         Date and time of departure (actual)
-         Date and time of arrival (actual)
+* Passenger
+* Date and time of departure (actual)
+* Date and time of arrival (actual)
          Departure delay (difference between actual and scheduled date in seconds)
          Arrival delay (difference between actual and planned date in seconds)
          Airplane
