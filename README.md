@@ -34,7 +34,8 @@ Low-quality rows should be written to separate rejected tables.
 
 ## The decision must contain:
 
-1. [SQL script](https://github.com/pvl-k/DWH-Course-Final-Work/blob/main/Docker/init.sql) for creating a fact table and all catalogs
+1. [Docker file](../tree/main/Docker) for creating container with PostgreSQL server.
+1. [SQL script](https://github.com/pvl-k/DWH-Course-Final-Work/blob/main/Docker/init.sql) for creating a fact table and all catalogs in container.
 2. [Transformations](https://github.com/pvl-k/DWH-Course-Final-Work/tree/main/etl)
 * ETL loading fact tables and all catalogs
 * Data quality validations
